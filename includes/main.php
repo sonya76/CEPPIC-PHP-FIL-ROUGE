@@ -3,14 +3,14 @@
 ?>
 <main>
 <?php
-    $page = isset($_GET['page']) ? $_GET['page'] : "N'existe pas";
+    $files = glob('./includes/*.inc.php');
+    $page = isset($_GET['page']) ? $_GET['page'] : "accueil";
+    $page = "./includes/" . $page . ".inc.php";
 
-    /*if (isset($_GET['page']))
-        $page = $_GET['page'];
+    if (in_array($page, $files)) 
+        require $page;
+    else 
+        require './includes/accueil.inc.php';
 
-    else
-        $page = "N'existe pas";
-    */
-    echo $page;
 ?>
 </main>
