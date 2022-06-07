@@ -1,7 +1,6 @@
 <?php
 
-require_once './functions/dump.php';
-require_once './functions/inclusionIncFiles.php';
+require_once './functions/autoLoadFunction.php';
 
 date_default_timezone_set('Europe/Paris');
 
