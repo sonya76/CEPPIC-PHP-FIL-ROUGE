@@ -34,6 +34,6 @@
     }
     
     else {
-        $nom = $prenom = $mail = "";
+        $mail = "";
         include './includes/frmLogin.php';
     }
