@@ -1,8 +1,6 @@
 <h1>Inscription</h1>
 <?php
     if (isset($_POST['frmInscription'])) {
-        $message = "Je viens du formulaire";
-        
         $nom = htmlentities(trim($_POST['nom']));
         $prenom = htmlentities(trim($_POST['prenom']));
         $mail = htmlentities(trim($_POST['mail']));
