@@ -1,4 +1,12 @@
 <h1>Inscription</h1>
+<?php
+    if (isset($_POST['frmInscription']))
+        $message = "Je viens du formulaire";
+    else
+        $message = "Je ne viens pas du formulaire";
+
+    echo $message;
+?>
 <form action="index.php?page=inscription" method="post">
     <div>
         <label for="nom">Nom :</label>
@@ -16,4 +24,5 @@
         <input type="reset" value="Effacer" />
         <input type="submit" value="Envoyer" />
     </div>
+    <input type="hidden" name="frmInscription" />
 </form>
