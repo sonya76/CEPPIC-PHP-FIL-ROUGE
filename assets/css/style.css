@@ -13,3 +13,10 @@ body {
 a {
     text-decoration: none;
 }
+
+.display {
+    background-color: red;
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+}
