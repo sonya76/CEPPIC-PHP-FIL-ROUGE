@@ -16,6 +16,9 @@
         if (mb_strlen($mail) === 0)
             array_push($erreurs, "Il manque votre e-mail");
 
+        elseif (!filter_var($mail, FILTER_VALIDATE_EMAIL))
+            array_push($erreurs, "Votre adresse mail n'est pas conforme");
+
         if (count($erreurs)) {
             $messageErreur = "<ul>";
 
@@ -33,7 +36,7 @@
         }
 
         else {
-            displayMessage("Pas d'erreurs");
+            displayMessage("Insertion BDD");
         }
     }
     
