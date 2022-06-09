@@ -36,7 +36,18 @@
         }
 
         else {
-            displayMessage("Insertion BDD");
+            $serverName = "localhost";
+            $userName = "root";
+            $userPassword = "";
+            $database = "filrouge";
+
+            try {
+
+            }
+
+            catch(PDOException $e) {
+                die("Erreur : " . $e->getMessage());
+            }
         }
     }
     
