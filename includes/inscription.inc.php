@@ -42,7 +42,8 @@
             $database = "filrouge";
 
             try {
-
+                $connexion = new PDO("mysql:host=$serverName;dbname=$database", $userName, $userPassword);
+                var_dump($connexion);
             }
 
             catch(PDOException $e) {
