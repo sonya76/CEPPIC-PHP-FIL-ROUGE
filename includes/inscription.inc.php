@@ -44,23 +44,16 @@
         }
 
         else {
-            $serverName = "localhost";
-            $userName = "root";
-            $userPassword = "";
-            $database = "filrouge";
+            $password = password_hash($password1, PASSWORD_DEFAULT);
 
-            try {
-                $connexion = new PDO("mysql:host=$serverName;dbname=$database", $userName, $userPassword);
-                $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $requete = "INSERT INTO utilisateurs (id_utilisateur, nom, prenom, mail, password)
+            VALUES (NULL, '$nom', '$prenom', '$mail', '$password');";
 
-                $password = password_hash($password1, PASSWORD_DEFAULT);
+            $queryInsert = new Sql();
+            $queryInsert->inserer($requete);
 
-                $requete = "INSERT INTO utilisateurs (id_utilisateur, nom, prenom, mail, password)
-                VALUES (NULL, '$nom', '$prenom', '$mail', '$password');";
 
-                $connexion->exec($requete);
-
-                displayMessage("Requête OK");
+            displayMessage("Requête OK");
             }
 
             catch(PDOException $e) {
