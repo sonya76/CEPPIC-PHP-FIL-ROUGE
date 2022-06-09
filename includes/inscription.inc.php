@@ -4,6 +4,8 @@
         $nom = htmlentities(trim($_POST['nom']));
         $prenom = htmlentities(trim($_POST['prenom']));
         $mail = htmlentities(trim($_POST['mail']));
+        $password1 = htmlentities(trim($_POST['password1']));
+        $password2 = htmlentities(trim($_POST['password2']));
 
         $erreurs = array();
 
@@ -18,6 +20,12 @@
 
         elseif (!filter_var($mail, FILTER_VALIDATE_EMAIL))
             array_push($erreurs, "Votre adresse mail n'est pas conforme");
+
+        if (mb_strlen($password1) === 0 || mb_strlen($password2) === 0)
+            array_push($erreurs, "Veuillez saisir votre mot de passe et sa confirmation");
+        
+        elseif ($password1 !== $password2)
+            array_push($erreurs, "Vos mots de passe ne sont pas identiques");
 
         if (count($erreurs)) {
             $messageErreur = "<ul>";
@@ -43,7 +51,16 @@
 
             try {
                 $connexion = new PDO("mysql:host=$serverName;dbname=$database", $userName, $userPassword);
-                var_dump($connexion);
+                $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $password = password_hash($password1, PASSWORD_DEFAULT);
+
+                $requete = "INSERT INTO utilisateurs (id_utilisateur, nom, prenom, mail, password)
+                VALUES (NULL, '$nom', '$prenom', '$mail', '$password');";
+
+                $connexion->exec($requete);
+
+                displayMessage("Requête OK");
             }
 
             catch(PDOException $e) {
