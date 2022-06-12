@@ -55,10 +55,6 @@
 
             displayMessage("Requête OK");
             }
-
-            catch(PDOException $e) {
-                die("Erreur : " . $e->getMessage());
-            }
         }
     }
     
