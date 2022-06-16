@@ -28,11 +28,12 @@ if (isset($_POST['frmLogin'])) {
 
         echo $messageErreur;
 
-        include './includes/frmLogin.php';
-    } else {
-        // include './includes/frmLogin.php';
-        $_SESSION['loginUser'] = $mail;
-        header('Location:index.php?page=admin');
+        else {
+            // include './includes/frmLogin.php';
+            $_SESSION['loginUser'] = $mail;
+            header('Location:index.php?page=admin');
+        }
+    }
     }
 } else {
     $mail = "";
