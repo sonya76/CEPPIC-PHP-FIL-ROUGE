@@ -1,3 +1,6 @@
+<?php
+// session_start();
+?>
 <h1>Login</h1>
 <?php
     if (isset($_POST['frmLogin'])) {
@@ -29,7 +32,9 @@
         }
 
         else {
-            include './includes/frmLogin.php';
+            // include './includes/frmLogin.php';
+            $_SESSION['loginUser'] = $mail;
+            header('Location:index.php?page=membre');
         }
     }
     
