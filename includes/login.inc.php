@@ -34,7 +34,7 @@
         else {
             // include './includes/frmLogin.php';
             $_SESSION['loginUser'] = $mail;
-            header('Location:index.php?page=membre');
+            header('Location:index.php?page=admin');
         }
     }
     
