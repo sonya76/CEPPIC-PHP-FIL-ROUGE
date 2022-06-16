@@ -12,7 +12,8 @@ class Sql
     {
         try {
             $this->connexion = new PDO("mysql:host=$this->serverName;dbname=$this->database", $this->userName, $this->userPassword);
-            $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+            $this->connexion->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE , PDO::FETCH_ASSOC);
         }
         
         catch(PDOException $e) {
@@ -25,8 +26,14 @@ class Sql
         $this->connexion->exec($query);
     }
 
-    // public function __destruct()
-    // {
-    //     $this->connexion = null;
-    // }
+    public function lister($query)
+    {
+        return($this->connexion->query($query)->fetchAll());
+    }
+
+    public function __destruct()
+    {
+        // $this->connexion = null;
+        unset($this->connexion);
+    }
 }
