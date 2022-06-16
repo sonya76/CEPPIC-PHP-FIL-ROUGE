@@ -5,7 +5,7 @@ class Sql
     private string $serverName = "localhost";
     private string $userName = "root";
     private string $userPassword = "";
-    private string $database = "filrouge";
+    private string $database = "filerouge";
     private object $connexion;
 
     public function __construct()
