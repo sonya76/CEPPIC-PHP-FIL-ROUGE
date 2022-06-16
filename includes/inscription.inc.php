@@ -56,7 +56,7 @@
             displayMessage("Requête OK");
             }
         }
-    }
+    
     
     else {
         $nom = $prenom = $mail = "";
