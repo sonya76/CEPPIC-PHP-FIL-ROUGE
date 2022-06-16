@@ -52,8 +52,9 @@
             $queryInsert = new Sql();
             $queryInsert->inserer($requete);
 
+            header('Location:./index.php?page=login');
 
-            displayMessage("Requête OK");
+            // displayMessage("Requête OK");
             }
         }
     
