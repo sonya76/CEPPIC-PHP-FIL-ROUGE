@@ -24,7 +24,6 @@ if (isset($_POST['frmLogin'])) {
         $messageErreur .= "</ul>";
 
         echo $messageErreur;
-
         include './includes/frmLogin.php';
     } else {
         $_SESSION['loginUser'] = $mail;
@@ -34,6 +33,7 @@ if (isset($_POST['frmLogin'])) {
         sendEmail($mail, 'contact@ceppic-php-file-rouge.fr', 'Login Success', $messageEmail);
 
         header('Location:index.php?page=admin');
+
     }
 } else {
     $mail = "";
