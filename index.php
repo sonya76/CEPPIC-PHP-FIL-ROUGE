@@ -14,3 +14,7 @@ require_once './includes/main.php';
 require_once './includes/footer.php';
 
 // $_SESSION['count'] = ($_SESSION['count'] ?? 0) + 1;
+
+// dump($_SERVER);
+// dump($_SERVER['REMOTE_ADDR']);
+// dump($_SERVER,'var_dump');
