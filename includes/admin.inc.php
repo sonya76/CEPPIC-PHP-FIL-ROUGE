@@ -5,7 +5,11 @@ $requete = 'SELECT * FROM utilisateurs order by id_utilisateur DESC';
 $querySelect = new Sql();
 $users = $querySelect->lister($requete);
 
-// dump($users);
+if (count($users) == 0)
+{
+    echo "<h2>Aucun utilisateurs  dans votre base de donnée !</h2>";
+    die();
+}
 ?>
 <table class="list-users">
     <thead>
@@ -26,7 +30,7 @@ $users = $querySelect->lister($requete);
                 <td><?= $user['prenom'] ?></td>
                 <td><?= $user['mail'] ?></td>
                 <td><a href="index.php?page=edit&id=<?= $user['id_utilisateur'] ?>" class="btn">Editer</a></td>
-                <td><a href="index.php?page=supp&id=<?= $user['id_utilisateur'] ?>" class="btn btn-supp">Supprimer</a></td>
+                <td><a href="index.php?page=supp&id=<?= $user['id_utilisateur'] ?>" class="btn btn-supp" onclick="return confirm('Etes vous certain de supprimer cet utilisateur ?')">Supprimer</a></td>
             </tr>
         <?php
         }

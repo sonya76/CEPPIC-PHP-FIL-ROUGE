@@ -28,7 +28,16 @@ class Sql
 
     public function lister($query)
     {
-        return($this->connexion->query($query)->fetchAll());
+        $resultat = $this->connexion->prepare($query);
+        $resultat->execute();
+        return $resultat->fetchAll();
+    }
+
+    public function supprimer($query,$idUser)
+    {
+        $resultat = $this->connexion->prepare($query);
+        $resultat->bindValue(':id',$idUser,PDO::PARAM_INT);
+        $resultat->execute();
     }
 
     public function __destruct()
