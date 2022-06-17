@@ -1,6 +1,3 @@
-<?php
-// session_start();
-?>
 <h1>Login</h1>
 <?php
 if (isset($_POST['frmLogin'])) {
@@ -30,8 +27,12 @@ if (isset($_POST['frmLogin'])) {
 
         include './includes/frmLogin.php';
     } else {
-        // include './includes/frmLogin.php';
         $_SESSION['loginUser'] = $mail;
+
+        $messageEmail = $mail . ' vous êtes connecté !';
+
+        sendEmail($mail, 'contact@ceppic-php-file-rouge.fr', 'Login Success', $messageEmail);
+
         header('Location:index.php?page=admin');
     }
 } else {
