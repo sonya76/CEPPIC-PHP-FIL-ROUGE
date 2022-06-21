@@ -1,7 +1,3 @@
-<?php
-// session_start();
-
-?>
 <header>
     <nav>
         <ul>
@@ -10,10 +6,8 @@
             <?php
             if (isset($_SESSION['loginUser'])) {
             ?>
-                <span class="login">
-                    <li><strong><?= $_SESSION['loginUser'] ?></strong></li>
-                    <li><a href="index.php?page=logout">Logout</a></li>
-                </span>
+                <li><strong><?= $_SESSION['loginUser'] ?></strong></li>
+                <li><a href="index.php?page=logout">Logout</a></li>
             <?php } else { ?>
                 <li><a href="index.php?page=inscription">Inscription</a></li>
                 <li><a href="index.php?page=login">Login</a></li>
