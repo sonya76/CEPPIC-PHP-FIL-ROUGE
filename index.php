@@ -3,6 +3,8 @@
 session_start();
 
 require '.vendor/autoload.php';
+$test = "124578";
+dump($test);
 
 date_default_timezone_set('Europe/Paris');
 
