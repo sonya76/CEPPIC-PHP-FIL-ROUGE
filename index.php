@@ -2,7 +2,7 @@
 
 session_start();
 
-require '.vendor/autoload.php';
+require './vendor/autoload.php';
 $test = "124578";
 dump($test);
 
