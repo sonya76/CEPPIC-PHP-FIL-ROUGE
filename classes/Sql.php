@@ -5,7 +5,7 @@ class Sql
     private string $serverName = "localhost";
     private string $userName = "root";
     private string $userPassword = "";
-    private string $database = "filerouge";
+    private string $database = "filrouge";
     private object $connexion;
 
     public function __construct()
@@ -42,6 +42,7 @@ class Sql
 
     public function __destruct()
     {
-        $this->connexion = null;
+        if(isset($this->connexion))
+            $this->connexion = null;
     }
 }
